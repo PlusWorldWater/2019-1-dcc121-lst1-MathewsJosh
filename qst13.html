@@ -7,9 +7,13 @@
 </head>
 
 <body>
-    <div id="interativo">Clique-me!</div>
+    <button id="interativo">Clique-me!</button> <!-- //professor errou pedindo "div"? -->
     <script>
-
+        var interativo = "Funcionou!";
+        document.getElementById("interativo").addEventListener("click", modifyText);
+        function modifyText() {
+            document.getElementById("interativo").innerHTML = interativo;
+        }
     </script>
 </body>
 
