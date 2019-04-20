@@ -7,13 +7,19 @@
 </head>
 
 <body>
-    <div id="x">7</div>
-    <div id="y">5</div>
+    <div id="x" contenteditable="true">7</div>
+    <div id="y" contenteditable="true">5</div>
     <div id="produto"></div>
     <div id="soma"></div>
     <button id="calcular">Calcular!</button>
     <script>
         var x = 7, y = 5, produto = x * y, soma = x + y, botao;
+        document.getElementById("calcular").addEventListener("click",modifyText)
+        function modifyText() {
+            document.getElementById("produto").innerText = "O produto de " + x + " e " + y + " é " + produto;
+            document.getElementById("soma").innerText = "A soma de " + x + " e " + y + " é " + soma;
+        }
+
     </script>
 </body>
 
