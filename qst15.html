@@ -17,15 +17,12 @@
             <span id="bolos" contenteditable="true">60</span> em Broas e Bolos.
         </p>
 
-        <p id="resultado">
-
-        </p>
+        <p id="resultado"></p>
 
         <button id="avaliar">Avaliar</button>
         <button id="limpar">Limpar</button>
 
-        <p id="melhorias">
-        </p>
+        <p id="melhorias"></p>
 
     </main>
     <script>
@@ -39,6 +36,14 @@
         botaoLimpar=document.getElementById("limpar");
         resultado=document.getElementById("anos");
         melhorias=document.getElementById("melhorias");
+
+        botaoLimpar.addEventListener("click",limparClick);
+
+        function limparClick()
+        {
+            document.getElementById("resultado").innerText="";
+            melhorias.innerText="";
+        }
     </script>
 </body>
 
