@@ -10,14 +10,17 @@
     <main>
         <h1>Resultado da Avaliação</h1>
         <p>
-            Olá <span id="nome" contenteditable="true">Fulano</span>, você está matriculado há 
-            <span id="anos" contenteditable="true">2</span> anos no curso de Confeitaria e as notas das suas 
-            disciplinas são: <span id="confeitaria" contenteditable="true">70</span> em Confeitaria Básica; 
-            <span id="cobertura" contenteditable="true">80</span> em Coberturas e 
+            Olá <span id="nome" contenteditable="true">Fulano</span>, você está matriculado há
+            <span id="anos" contenteditable="true">2</span> anos no curso de Confeitaria e as notas das suas
+            disciplinas são: <span id="confeitaria" contenteditable="true">70</span> em Confeitaria Básica;
+            <span id="cobertura" contenteditable="true">80</span> em Coberturas e
             <span id="bolos" contenteditable="true">60</span> em Broas e Bolos.
         </p>
 
-        <p id="resultado"></p>
+        <p id="resultado">
+
+
+        </p>
 
         <button id="avaliar">Avaliar</button>
         <button id="limpar">Limpar</button>
@@ -27,22 +30,30 @@
     </main>
     <script>
         var nome, anos, confeitaria, coberturas, bolos, botaoAvaliar, botaoLimpar, resultado, melhorias, media;
-        nome=document.getElementById("nome");
-        anos=document.getElementById("anos");
-        confeitaria=document.getElementById("confeitaria");
-        coberturas=document.getElementById("cobertura");
-        bolos=document.getElementById("bolos");
-        botaoAvaliar=document.getElementById("avaliar");
-        botaoLimpar=document.getElementById("limpar");
-        resultado=document.getElementById("anos");
-        melhorias=document.getElementById("melhorias");
+        nome = document.getElementById("nome");
+        anos = document.getElementById("anos");
+        confeitaria = document.getElementById("confeitaria");
+        coberturas = document.getElementById("cobertura");
+        bolos = document.getElementById("bolos");
+        botaoAvaliar = document.getElementById("avaliar");
+        botaoLimpar = document.getElementById("limpar");
+        resultado = document.getElementById("resultado");
+        melhorias = document.getElementById("melhorias");
 
-        botaoLimpar.addEventListener("click",limparClick);
+        botaoLimpar.addEventListener("click", limparClick);
+        botaoAvaliar.addEventListener("click", avaliarClick);
 
-        function limparClick()
-        {
-            document.getElementById("resultado").innerText="";
-            melhorias.innerText="";
+        function limparClick() {
+            resultado.innerText = "";
+            melhorias.innerText = "";
+        }
+        function avaliarClick() {
+            var spans = document.querySelectorAll("span");
+            media = (Number(spans[2].textContent) + Number(spans[3].textContent) + Number(spans[4].textContent)) / 3;
+            if (media >= 70)
+                resultado.innerText = "Parabéns Fulano! Você está aprovado com média " + media + "!";
+            else
+                resultado.innerText = "Você está reprovado com média"+media+"!";
         }
     </script>
 </body>
