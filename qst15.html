@@ -17,15 +17,11 @@
             <span id="bolos" contenteditable="true">60</span> em Broas e Bolos.
         </p>
 
-        <p id="resultado">
-
-
-        </p>
+        <p id="resultado"></p>
+        <p id="melhorias"></p>
 
         <button id="avaliar">Avaliar</button>
         <button id="limpar">Limpar</button>
-
-        <p id="melhorias"></p>
 
     </main>
     <script>
@@ -48,12 +44,23 @@
             melhorias.innerText = "";
         }
         function avaliarClick() {
-            var spans = document.querySelectorAll("span");
-            media = (Number(spans[2].textContent) + Number(spans[3].textContent) + Number(spans[4].textContent)) / 3;
+            var spans, nconf, ncob, nbolo;
+            spans = document.querySelectorAll("span");
+            nconf = Number(spans[2].textContent);
+            ncob = Number(spans[3].textContent);
+            nbolo = Number(spans[4].textContent);
+            //console.log(nconf,ncob,nbolo);
+            media = (nconf + ncob + nbolo) / 3;
             if (media >= 70)
                 resultado.innerText = "Parabéns Fulano! Você está aprovado com média " + media + "!";
             else
                 resultado.innerText = "Você está reprovado com média" + media + "!";
+            if (nconf < 60)
+                melhorias.innerText = "Fulano, considere estudar mais Confeitaria Básica!";
+            if (ncob < 60)
+                melhorias.innerText = "Fulano, considere estudar mais Coberturas!";
+            if (nbolo < 60)
+                melhorias.innerText = "Fulano, considere estudar mais Broas e Bolos!";
         }
     </script>
 </body>
